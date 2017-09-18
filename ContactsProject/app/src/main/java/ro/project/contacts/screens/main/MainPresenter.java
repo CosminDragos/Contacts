@@ -31,39 +31,42 @@ public class MainPresenter extends BasePresenter<Contract.ContractView> implemen
 
     @Override
     public void loadContacts(final boolean loadMore, int page) {
-        getView().init();
-        service.getContacts(String.valueOf(page), String.valueOf(100), "abc")
-                .enqueue(new Callback<ResponseContacts>() {
-            @Override
-            public void onResponse(Call<ResponseContacts> call, Response<ResponseContacts> response) {
-                if (response.isSuccessful()
-                        && response.body().getResult() != null
-                        && !response.body().getResult().isEmpty()) {
+        if (!loadMore) {
+            getView().init();
+        }
 
-                    if (loadMore) {
-                        getView().refreshList(response.body().getResult());
-                    } else {
-                        getView().setAdapter(response.body().getResult());
-                    }
+            service.getContacts(String.valueOf(page), String.valueOf(100), "abc")
+                    .enqueue(new Callback<ResponseContacts>() {
+                        @Override
+                        public void onResponse(Call<ResponseContacts> call, Response<ResponseContacts> response) {
+                            if (response.isSuccessful()
+                                    && response.body().getResult() != null
+                                    && !response.body().getResult().isEmpty()) {
 
-                } else {
-                    if (loadMore) {
-                        getView().refreshList(new ArrayList<Contact>());
-                    } else {
-                        getView().setAdapter(new ArrayList<Contact>());
-                    }
-                }
-            }
+                                if (loadMore) {
+                                    getView().refreshList(response.body().getResult());
+                                } else {
+                                    getView().setAdapter(response.body().getResult());
+                                }
 
-            @Override
-            public void onFailure(Call<ResponseContacts> call, Throwable t) {
-                if (loadMore) {
-                    getView().refreshList(new ArrayList<Contact>());
-                } else {
-                    getView().setAdapter(new ArrayList<Contact>());
-                }
-            }
-        });
+                            } else {
+                                if (loadMore) {
+                                    getView().refreshList(new ArrayList<Contact>());
+                                } else {
+                                    getView().setAdapter(new ArrayList<Contact>());
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseContacts> call, Throwable t) {
+                            if (loadMore) {
+                                getView().refreshList(new ArrayList<Contact>());
+                            } else {
+                                getView().setAdapter(new ArrayList<Contact>());
+                            }
+                        }
+                    });
     }
 
     @Override

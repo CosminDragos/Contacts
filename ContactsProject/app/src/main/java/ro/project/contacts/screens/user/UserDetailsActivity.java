@@ -1,8 +1,12 @@
 package ro.project.contacts.screens.user;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.view.ContextThemeWrapper;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
@@ -20,6 +24,7 @@ import ro.project.contacts.utils.PrefUtils;
 
 public class UserDetailsActivity extends BaseActivity<Contract.ContractPresenter> implements Contract.ContractView {
 
+    @BindView(R.id.details_toolbar) Toolbar toolbar;
     @BindView(R.id.icon_contact_details) ImageView iconContact;
     @BindView(R.id.name_contact_details) AutoResizeTextView nameContact;
     @BindView(R.id.phone_number) AutoResizeTextView phoneNumber;
@@ -39,6 +44,23 @@ public class UserDetailsActivity extends BaseActivity<Contract.ContractPresenter
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(getResources().getColor(R.color.primarySecondScreenDark));
         }
+
+        init();
+    }
+
+    @Override
+    public int getLayoutID() {
+        return R.layout.activity_user_details;
+    }
+
+    @Override
+    public void init() {
+
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
         Picasso.with(UserDetailsActivity.this)
                 .load(PrefUtils.getSharedPreference(UserDetailsActivity.this, PrefUtils.ICON_LARGE, ""))
                 .into(iconContact);
@@ -47,11 +69,25 @@ public class UserDetailsActivity extends BaseActivity<Contract.ContractPresenter
         email.setText(PrefUtils.getSharedPreference(UserDetailsActivity.this, PrefUtils.EMAIL, ""));
         address.setText(PrefUtils.getSharedPreference(UserDetailsActivity.this, PrefUtils.ADDRESS, ""));
         fullId.setText("ID: " + PrefUtils.getSharedPreference(UserDetailsActivity.this, PrefUtils.FULL_ID, ""));
-
     }
 
     @Override
-    public int getLayoutID() {
-        return R.layout.activity_user_details;
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

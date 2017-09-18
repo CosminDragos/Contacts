@@ -14,7 +14,7 @@ import ro.project.contacts.mvp.BaseContract;
 class Contract {
 
     public interface ContractView extends BaseContract.ContractView {
-
+        public void init();
     }
 
     public interface ContractPresenter extends BaseContract.ContractPresenter {
