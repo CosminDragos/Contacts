@@ -36,6 +36,7 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.7.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.github.chathuralakmal:AndroidImagePopup:1.0.9'
 
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'

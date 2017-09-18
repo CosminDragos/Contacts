@@ -18,6 +18,7 @@ public class PrefUtils {
     public static final String ICON_THUMBNAIL = "icon_thumbnail";
     public static final String ICON_MEDIUM = "icon_medium";
     public static final String ICON_LARGE = "icon_large";
+    public static final String STREET = "street";
 
     public static int getSharedPreference(Context context, String key, int defaultValue) {
         SharedPreferences prefs = context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE);
