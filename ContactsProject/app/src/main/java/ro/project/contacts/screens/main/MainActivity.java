@@ -5,6 +5,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 
 import java.util.List;
@@ -92,6 +93,12 @@ public class MainActivity extends BaseActivity<Contract.ContractPresenter> imple
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
     public void setAdapter(List<Contact> contactList) {
 
         contactsAdapter = new ContactsAdapter(this, this, contactList, new ContactsAdapter.OnItemClickListener() {
@@ -123,7 +130,7 @@ public class MainActivity extends BaseActivity<Contract.ContractPresenter> imple
         });
 
         recyclerViewEmptySupport.setAdapter(contactsAdapter);
-        page = !contactList.isEmpty() ? page++ : page;
+        page = (!contactList.isEmpty()) ? page+1 : page;
 
         mSwipeRefreshLayout.setRefreshing(false);
         progressView.setVisibility(View.GONE);
@@ -131,7 +138,7 @@ public class MainActivity extends BaseActivity<Contract.ContractPresenter> imple
 
     @Override
     public void refreshList(List<Contact> contactList) {
-        page = !contactList.isEmpty() ? page++ : page;
+        page = (!contactList.isEmpty()) ? page+1 : page;
         contactsAdapter.removeItem(contactsAdapter.getItemCount()-1);
         contactsAdapter.addMore(contactList);
         contactsAdapter.setLoading(false);

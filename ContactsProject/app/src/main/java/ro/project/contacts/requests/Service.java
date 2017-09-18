@@ -12,8 +12,8 @@ import ro.project.contacts.forms.ResponseContacts;
 public interface Service {
 
     @GET("/api")
-    Call<ResponseContacts> getContacts(@Query("page") String page,
-                                       @Query("results") String results,
+    Call<ResponseContacts> getContacts(@Query("page") Integer page,
+                                       @Query("results") Integer results,
                                        @Query("seed") String seed);
 
 

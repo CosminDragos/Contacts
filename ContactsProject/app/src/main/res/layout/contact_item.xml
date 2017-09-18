@@ -51,10 +51,10 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
-                android:src="@drawable/attachment"/>
+                android:src="@drawable/ic_attachment_black_24dp"/>
 
             <ro.project.contacts.custom.AutoResizeTextView
                 android:id="@+id/date_register_contact"
@@ -67,11 +67,11 @@
         </LinearLayout>
 
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="right|bottom"
             android:layout_marginTop="16dp"
-            android:src="@drawable/star"/>
+            android:src="@drawable/ic_star_border_black_24dp"/>
 
     </LinearLayout>
 
