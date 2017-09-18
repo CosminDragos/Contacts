@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ContactsProject</string>
+    <string name="main_toolbar">Users</string>
 </resources>

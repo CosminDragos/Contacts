@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/AppTheme2">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/main_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primarySecondScreen"
+        app:titleTextColor="@color/paletteWhite">
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/title_contact_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp"
+                android:background="@color/primarySecondScreen">
+
+                <ro.project.contacts.custom.CustomRatioFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:ratioType="height"
+                    app:height_ratio="0.3">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/icon_contact_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </ro.project.contacts.custom.CustomRatioFrameLayout>
+
+                <ro.project.contacts.custom.AutoResizeTextView
+                    android:id="@+id/name_contact_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/paletteWhite"
+                    android:textSize="30sp"
+                    android:text="George Phillips"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="32dp"
+                android:paddingBottom="32dp"
+                android:background="@android:drawable/dialog_holo_light_frame">
+
+                <ImageView
+                    android:id="@+id/phone_icon1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="16dp"
+                    android:src="@drawable/phone"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_toRightOf="@+id/phone_icon1"
+                    android:layout_toLeftOf="@+id/message_icon1"
+                    android:orientation="vertical">
+
+                    <ro.project.contacts.custom.AutoResizeTextView
+                        android:id="@+id/phone_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:textSize="16sp"/>
+
+
+                    <ro.project.contacts.custom.AutoResizeTextView
+                        android:id="@+id/phone_number_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone"
+                        android:textColor="@color/colorDivider"
+                        android:textSize="14sp"/>
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/message_icon1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/message"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="32dp"
+                android:paddingBottom="32dp"
+                android:background="@android:drawable/dialog_holo_light_frame">
+
+                <ImageView
+                    android:id="@+id/phone_icon2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="16dp"
+                    android:src="@drawable/phone"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_toRightOf="@+id/phone_icon2"
+                    android:layout_toLeftOf="@+id/message_icon2"
+                    android:orientation="vertical">
+
+                    <ro.project.contacts.custom.AutoResizeTextView
+                        android:id="@+id/email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:textSize="16sp"/>
+
+
+                    <ro.project.contacts.custom.AutoResizeTextView
+                        android:id="@+id/email_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:textColor="@color/colorDivider"
+                        android:textSize="14sp"/>
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/message_icon2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/message"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="32dp"
+                android:paddingBottom="32dp"
+                android:background="@android:drawable/dialog_holo_light_frame">
+
+                <ImageView
+                    android:id="@+id/phone_icon3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="16dp"
+                    android:src="@drawable/phone"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_toRightOf="@+id/phone_icon3"
+                    android:layout_toLeftOf="@+id/message_icon3"
+                    android:orientation="vertical">
+
+                    <ro.project.contacts.custom.AutoResizeTextView
+                        android:id="@+id/address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:textSize="16sp"/>
+
+
+                    <ro.project.contacts.custom.AutoResizeTextView
+                        android:id="@+id/address_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Address"
+                        android:textColor="@color/colorDivider"
+                        android:textSize="14sp"/>
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/message_icon3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/message"/>
+
+            </RelativeLayout>
+
+            <ro.project.contacts.custom.AutoResizeTextView
+                android:id="@+id/full_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorDivider"
+                android:layout_margin="8dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
